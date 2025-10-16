@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light & Dark tokens */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 224 71.4% 4.1%;
+  --card: 0 0% 100%;
+  --border: 214 32% 91%;
+  --muted: 210 40% 96%;
+  --accent: 222 84% 60%;
+  --sidebar: 210 20% 98%;
+}
+
+.dark {
+  --background: 222 20% 9%;
+  --foreground: 210 40% 98%;
+  --card: 222 16% 12%;
+  --border: 215 27% 16%;
+  --muted: 222 15% 16%;
+  --accent: 262 83% 58%;
+  --sidebar: 222 20% 10%;
+}
+
+@layer base {
+  * { @apply border-border; }
+  html, body, #root { height: 100%; }
+  body { @apply bg-background text-foreground antialiased; }
+}
+
+@layer components {
+  .card { @apply bg-card border rounded-xl2 shadow-soft; }
+  .btn  { @apply inline-flex items-center justify-center rounded-md px-3 py-2 text-sm font-medium transition; }
+  .btn-primary { @apply btn bg-foreground text-background hover:opacity-90; }
+  .btn-ghost   { @apply btn bg-transparent hover:bg-muted; }
+  .pill { @apply inline-flex items-center gap-2 rounded-full bg-muted px-3 py-1 text-xs; }
+}
